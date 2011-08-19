@@ -1,0 +1,36 @@
+Dependency Graphs and their Applications, Part I: System Startup and Shutdown
+Jay M. Coskey, 2011-08-18
+
+Descriptions of algorithms for creating dependency graphs are often written
+in shorthand, sometimes with simplifying assumptions, such as that the input
+data has no cyclic dependencies, or that the graph has only one root.
+I thought it would be instructive to work out these algorithms for myself.
+I did so in Python, to which I’m a relative newcomer.
+
+The code referenced from this post:
+  * Creates dependency graph based on input data listing nodes (referred
+    to as “components”) and dependencies (which refer to a “component” and
+    a “requirement” to clearly differentiate the two parts of a dependency).
+  * Detects cycles, and remediate them by removing a minimal number of
+    edges needed to remove the cycle.  (But not necessarily the smallest
+    number possible.)
+  * Determines a topological ordering of the components.
+  * Uses the topological ordering of components to compute the earliest
+    possible startup times for all the components listed in the dependency
+    graph, given that each component can only begin to start up after all
+    its pre-requisites have completed their startup process.
+  * Computes the possible shutdown times, as above, but in reverse.  This
+    uses the reverse of the topological ordering mentioned above.
+
+Future blog posts on dependency graphs will likely cover:
+  * Using the Boost Graph Library (from C++, Python, or another language)
+    to simplify the care and feeding of dependency graphs.
+  * Creating Bayesian network for probabilistically determining root cause
+    of failure among a network of interdependent systems.
+  * Compiler optimizations.
+
+Resources:
+  * Cormen, Thomas H., et. al.  Introduction to Algorithms, 3rd ed. 
+    The MIT Press, 2009
+  * Siek, Jeremy G., Lee, Lie-Quan, and Lumsdaine, Andrew.  The Boost Graph
+    Library: User Guide and Reference Manual. Addison-Wesley, 2002.
