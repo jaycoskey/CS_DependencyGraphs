@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+
+  <title>jaycoskey/DependencyGraphs @ GitHub</title>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #ffffff;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #000000; }
+    h3 { text-align: center; color: #000000; }
+    a { color: #000000; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <a href="http://github.com/jaycoskey/DependencyGraphs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/jaycoskey/DependencyGraphs/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/jaycoskey/DependencyGraphs/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/jaycoskey/DependencyGraphs">DependencyGraphs</a>
+      <span class="small">by <a href="http://github.com/jaycoskey">jaycoskey</a></span></h1>
+
+    <div class="description">
+      Dependency graphs and their applications
+    </div>
+
+    <p>Dependency Graphs and their Applications, Part I: System Startup and Shutdown
+Jay M. Coskey, 2011-08-18
+
+Descriptions of algorithms for creating dependency graphs are often written
+in shorthand, sometimes with simplifying assumptions, such as that the input
+data has no cyclic dependencies, or that the graph has only one root.
+I thought it would be instructive to work out these algorithms for myself.
+I did so in Python, to which I’m a relative newcomer.
+
+The code referenced from this post:
+  * Creates dependency graph based on input data listing nodes (referred
+    to as “components”) and dependencies (which refer to a “component” and
+    a “requirement” to clearly differentiate the two parts of a dependency).
+  * Detects cycles, and remediate them by removing a minimal number of
+    edges needed to remove the cycle.  (But not necessarily the smallest
+    number possible.)
+  * Determines a topological ordering of the components.
+  * Uses the topological ordering of components to compute the earliest
+    possible startup times for all the components listed in the dependency
+    graph, given that each component can only begin to start up after all
+    its pre-requisites have completed their startup process.
+  * Computes the possible shutdown times, as above, but in reverse.  This
+    uses the reverse of the topological ordering mentioned above.
+
+Future blog posts on dependency graphs will likely cover:
+  * Using the Boost Graph Library (from C++, Python, or another language)
+    to simplify the care and feeding of dependency graphs.
+  * Creating Bayesian network for probabilistically determining root cause
+    of failure among a network of interdependent systems.
+  * Compiler optimizations.
+
+Resources:
+  * Cormen, Thomas H., et. al.  Introduction to Algorithms, 3rd ed. 
+    The MIT Press, 2009
+  * Siek, Jeremy G., Lee, Lie-Quan, and Lumsdaine, Andrew.  The Boost Graph
+    Library: User Guide and Reference Manual. Addison-Wesley, 2002.</p><h2>License</h2>
+<p>Copyright 2011 by Jay M. Coskey
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+<h2>Authors</h2>
+<p>     Jay M. Coskey</p>
+<h2>Contact</h2>
+<p> (jay.coskey@gmail.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/jaycoskey/DependencyGraphs/zipball/master">zip</a> or
+      <a href="http://github.com/jaycoskey/DependencyGraphs/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/jaycoskey/DependencyGraphs</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/jaycoskey/DependencyGraphs">jaycoskey/DependencyGraphs</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
